@@ -15,7 +15,8 @@ const backgroundMusic = "/fani_ellie-goulding-love-me-like-you-do-mp3.mp3";
 const flowerCornerImage = "/Gemini_Generated_Image_96fatm96fatm96fa-removebg-preview.png";
 const heroBackgroundImage = "/ChatGPT Image Aug 29, 2026, 04_06_21 AM.png";
 const brideGroomImage = "/gold/rings_gold.jpg";
-const venueImage = "/Gemini_Generated_Image_a9bva3a9bva3a9bv.jpg";
+const churchMapLink = "https://www.google.com/maps/search/?api=1&query=St.%20Joseph's%20Church%2C%20Wennappuwa%2C%20Sri%20Lanka";
+const venueImage ="/Gemini_Generated_Image_a9bva3a9bva3a9bv.jpg";
 const venueMapLink = "https://www.google.com/maps/search/?api=1&query=Willuda%20Inn%2C%20Godagama%2C%20Sri%20Lanka";
 
 type InviteImageProps = React.ComponentProps<"img"> & {
@@ -191,7 +192,7 @@ function CountdownTimer() {
   );
 }
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxuGTj0NvL9KnWdpCBx7rawtYHWRtHSwllWSYEONdnhaIPyTnFvJGOp2srwBrNpoant/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxOCLuzPlM0-UaivIQ6EDNVswT6Yq_aDfpogwGOQpAGrLkiIOC8CsopxZ6md-BwyaZnMg/exec";
 
 export default function WeddingInvitation() {
   const [isOpened, setIsOpened] = useState(false);
@@ -227,7 +228,7 @@ export default function WeddingInvitation() {
       const fieldMapping: Record<string, string> = {
         name: "Name",
         guests: "Guests",
-        dietary: "Dietary Notes",
+        dietary: "Wish",
         message: "Message"
       };
 
@@ -730,12 +731,23 @@ export default function WeddingInvitation() {
 
                       <div className="grid grid-cols-2 w-full mt-4 md:mt-6">
                         {[
-                          { title: "Ceremony", time: "10:00 AM" },
-                          { title: "Reception", time: "11:00 AM" },
+                          { title: "Ceremony", time: "10:00 AM", place: "St. Joseph's Church", town: "Wennappuwa", map: churchMapLink },
+                          { title: "Reception", time: "11:00 AM", place: "Willuda Inn", town: "Godagama", map: venueMapLink },
                         ].map((event, i) => (
                           <div key={event.title} className={`flex flex-col items-center px-2 ${i === 0 ? "border-r border-theme-200" : ""}`}>
                             <h4 className="font-cinzel text-[17px] md:text-3xl text-theme-900 tracking-[0.2em] md:tracking-[0.3em] font-bold drop-shadow-sm uppercase">{event.title}</h4>
                             <p className="font-cinzel text-[19px] md:text-2xl text-theme-700 font-bold tracking-[0.15em] md:tracking-[0.2em] mt-3">{event.time}</p>
+                            <p className="font-serif italic text-[16px] md:text-xl text-zinc-700 mt-3 leading-snug">{event.place}</p>
+                            <p className="font-cinzel text-[10px] md:text-xs uppercase tracking-[0.25em] text-stone-500 mt-1">{event.town}</p>
+                            <a
+                              href={event.map}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="mt-3 inline-flex items-center gap-1.5 text-[9px] md:text-[10px] uppercase tracking-[0.25em] font-bold text-theme-600 border-b border-theme-300 pb-0.5 hover:text-theme-800 transition-colors"
+                            >
+                              <MapPin className="w-3 h-3" />
+                              Directions
+                            </a>
                           </div>
                         ))}
                       </div>

@@ -17,7 +17,7 @@ export default function Admin() {
 
   const generateMessage = (link: string) => {
     const greeting = prefix.toLowerCase() === 'dear' ? `Dear ${guestName}` : `Dear ${prefix} ${guestName}`;
-    return `${greeting} ❤️\n\nWith joyful hearts, we warmly invite you to celebrate one of the most special days of our lives as we begin our journey together.\n\n📅 Date: November 12, 2026 (Thursday)\n⛪ Ceremony: 10:00 AM\n🥂 Reception: 11:00 AM (until 04:00 PM)\n📍 Venue: Willuda Inn, Godagama\n\nPlease view our wedding invitation and all the event details through the link below 🌐:\n\n${link}\n\nYour presence would truly mean the world to us, and we would be honored to celebrate this beautiful moment together.\n\nWith love,\n❤️ Madara & Harshaka`;
+    return `${greeting} ❤️\n\nWith joyful hearts, we warmly invite you to celebrate one of the most special days of our lives as we begin our journey together.\n\n📅 Date: November 12, 2026 (Thursday)\n⛪ Ceremony: 10:00 AM\n📍 St. Joseph's Church, Wennappuwa\n\n🥂 Reception: 11:00 AM - 04:00 PM\n📍 Willuda Inn, Godagama\n\nPlease view our wedding invitation and all the event details through the link below 🌐:\n\n${link}\n\nYour presence would truly mean the world to us, and we would be honored to celebrate this beautiful moment together.\n\nWith love,\n❤️ Madara & Harshaka`;
   };
 
   const copyToClipboard = (text: string) => {
